@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(150)
 {
@@ -90,4 +91,17 @@ void Bureaucrat::incrementGrade(void)
 void Bureaucrat::decrementGrade(void)
 {
 		setGrade(this->_grade + 1);
+}
+
+void Bureaucrat::signForm(Form &f)
+{
+	try
+	{
+		f.beSigned(*this);
+		std::cout << this->getName() << " signed " << f.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << this->getName() << " couldn't sign " << f.getName() << " because " << e.what() << std::endl;
+	}
 }
