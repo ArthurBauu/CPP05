@@ -25,25 +25,28 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return *this;
 }
 
-void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+void ShrubberyCreationForm::executeAction() const 
 {
-	if (!this->isSigned())
-		throw AForm::GradeTooLowException();
-	if (executor.getGrade() > this->getGradeToExecute())
-		throw AForm::GradeTooLowException();
+    std::ofstream ofs((_target + "_shrubbery").c_str());
+    if (!ofs)
+        throw FileErrorException();
 
-	std::ofstream ofs((this->_target + "_shrubbery").c_str());
-	if (ofs.fail())
-		throw FileErrorException();
-	ofs <<"     ###"
-"      #o###"
-"    #####o###"
-"   #o#|#|#/###"
-"    ####|/#o#"
-"     # }|{  #"
-"       }|{" << std::endl;
-	ofs.close();
+    ofs <<
+"       ###\n"
+"      #o###\n"
+"    #####o###\n"
+"   #o#|#|#/###\n"
+"    ####|/#o#\n"
+"     # }|{  #\n"
+"       }|{\n\n\n\n\n" 
+"       *\n"
+"      ***\n"
+"     *****\n"
+"    *******\n"
+"   *********\n"
+"      |||\n";
 }
+
 
 const char *ShrubberyCreationForm::FileErrorException::what() const throw()
 {

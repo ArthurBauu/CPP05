@@ -21,7 +21,7 @@ class ShrubberyCreationForm : public AForm
 
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &rhs);
 
-		void	execute(Bureaucrat const & executor) const;
+		void executeAction() const;
 
 		class FileErrorException : public std::exception
 		{

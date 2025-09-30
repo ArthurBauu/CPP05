@@ -84,3 +84,16 @@ std::ostream & operator<<(std::ostream &o, AForm *a)
 	o << "AForm " << a->getName() << ", signed: " << (a->isSigned() ? "true" : "false") << ", grade required to sign: " << a->getGradeToSign() << ", grade required to execute: " << a->getGradeToExecute() << "." << std::endl;
 	return o;
 }
+
+void AForm::execute(Bureaucrat const &executor) const
+{
+	if (!this->isSigned())
+		throw std::runtime_error("Form is not signed");
+	else if (executor.getGrade() > this->getGradeToExecute())
+		throw AForm::GradeTooLowException();
+	else
+	{
+		this->executeAction();
+		std::cout << executor.getName() << " executed " << this->getName() << std::endl;
+	}
+}

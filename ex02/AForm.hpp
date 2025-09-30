@@ -15,6 +15,10 @@ class AForm
 		int	const			_gradeToSign;
 		int	const			_gradeToExecute;
 
+
+
+
+
 	public:
 		AForm();
 		AForm(const AForm &src);
@@ -28,7 +32,7 @@ class AForm
 		int			getGradeToSign(void) const;
 		int			getGradeToExecute(void) const;
 		void		beSigned(const Bureaucrat &b);
-
+		void execute(Bureaucrat const &executor) const;
 
 		class GradeTooLowException : public std::exception
 		{
@@ -41,6 +45,9 @@ class AForm
 		public:
 			virtual const char *what() const throw();
 		};
+	
+	protected: 
+		virtual void executeAction() const = 0;
 };
 
 std::ostream &operator<<(std::ostream &o, AForm *a);
