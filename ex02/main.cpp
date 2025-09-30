@@ -139,7 +139,7 @@ int main()
 	delete f;
 	delete i;
 	delete r;
-
-
+	delete p;
+	
 	return 0;
 }
