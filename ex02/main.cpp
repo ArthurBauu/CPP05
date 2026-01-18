@@ -8,14 +8,15 @@ int main()
 {
 	std::srand(std::time(NULL));
 
-
+	// Creating bureaucrats and forms
+	std::cout << "----- Creating bureaucrats and forms -----" << std::endl;
 	Bureaucrat *a = new Bureaucrat("Alice", 2);
 	std::cout << a;
 
 	Bureaucrat *b = new Bureaucrat("Bob", 149);
 	std::cout << b;
 
-	ShrubberyCreationForm *f = new ShrubberyCreationForm("home");
+	ShrubberyCreationForm *f = new ShrubberyCreationForm("Tree");
 	std::cout << f;
 
 	ShrubberyCreationForm *i = new ShrubberyCreationForm("office");
@@ -29,7 +30,7 @@ int main()
 
 
 
-
+	// Signing forms
 	std::cout << "\n----- Signing forms -----" << std::endl;
 	try
 	{
@@ -51,7 +52,7 @@ int main()
 		std::cout << e.what() << std::endl;
 	}
 
-
+	// Executing ShrubberyCreationForms
 	std::cout << "\n----- Executing Shrubbery forms -----" << std::endl;
 	try
 	{
@@ -62,6 +63,7 @@ int main()
 		std::cout << e.what() << std::endl;
 	}
 
+	std::cout << "\n----- Bob Executing Shrubbery forms -----"<<std::endl;
 	try
 	{
 		i->execute(*b);
@@ -71,6 +73,7 @@ int main()
 		std::cout << e.what() << std::endl;
 	}
 
+	// Signing and executing RobotomyRequestForm
 	std::cout << "\n----- Signing and executing Robotomy form -----" << std::endl;
 	try
 	{
@@ -101,6 +104,7 @@ int main()
 		std::cout << e.what() << std::endl;
 	}
 
+	// Signing and executing PresidentialPardonForm
 	std::cout << "\n----- Signing and executing Presidential Pardon form -----" << std::endl;
 
 	try
@@ -132,7 +136,7 @@ int main()
 		std::cout << e.what() << std::endl;
 	}
 
-
+	// Cleaning up
 	std::cout << "\n----- Cleaning up -----" << std::endl;
 	delete a;
 	delete b;

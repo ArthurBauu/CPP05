@@ -2,6 +2,8 @@
 
 int main()
 {
+	//creating Bureaucrats
+	std::cout << "\nCreating Bureaucrats:" << std::endl;
 	Bureaucrat *a = new Bureaucrat();
 	std::cout << a;
 	Bureaucrat *b = new Bureaucrat("Bob");
@@ -11,6 +13,8 @@ int main()
 	Bureaucrat *d = new Bureaucrat("Alice", 2);
 	std::cout << d;
 
+	//creating Bureaucrat with invalid grades
+	std::cout << "\nCreating Bureaucrat with invalid grades:" << std::endl;
 	try
 	{
 		Bureaucrat* e = new Bureaucrat("Charlie", 151);
@@ -21,7 +25,6 @@ int main()
 	{
 		std::cout << e.what() << std::endl;
 	}
-
 	try
 	{
 		Bureaucrat* f = new Bureaucrat("Eve", 0);
@@ -53,9 +56,14 @@ int main()
 
 
 	//going to 1
+	std::cout << "\nUpgrading Alice grade from 2 to 1:" << std::endl;
+	std::cout << d->getName() << " current grade: " << d->getGrade() << std::endl;
 	d->incrementGrade(); 
+	std::cout << d->getName() << " new grade: " << d->getGrade() << std::endl;
 	std::cout << d;
+ 
 	//trying to go under 1
+	std::cout << "\nTrying to increment grade over 1:" << std::endl;
 	try{
 		d->incrementGrade();
 	}
@@ -63,12 +71,11 @@ int main()
 	{
 		std::cout << e.what() << std::endl;
 	}
+
 	// increasing grade
+	std::cout << "\nDecreasing grade after trying to go over 1:" << std::endl;
 	d->decrementGrade();
 	std::cout << d;
-
-
-
 
 	delete a;
 	delete b;

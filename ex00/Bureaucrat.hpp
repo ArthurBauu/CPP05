@@ -22,10 +22,10 @@ class Bureaucrat
 		~Bureaucrat();
 		Bureaucrat & operator=(const Bureaucrat &rhs);
 
-		const std::string getName(void) const;
-		int		getGrade(void) const;
-		void			incrementGrade(void);
-		void			decrementGrade(void);
+		const std::string 	getName(void) const;
+		int					getGrade(void) const;
+		void				incrementGrade(void);
+		void				decrementGrade(void);
 
 		class GradeTooLowException : public std::exception
 		{

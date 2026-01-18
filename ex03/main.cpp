@@ -7,18 +7,21 @@
 
 int main()
 {
-
+	// Creating intern
 	Intern someRandomIntern;
 	AForm* rrf;
 	AForm* scf;
 	AForm* ppf;
-	AForm* ttf;
+	AForm* ttf = NULL;
 
+	// Creating forms
 	std::cout << "\ncreating forms..." << std::endl;
 	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 	scf = someRandomIntern.makeForm("shrubbery creation", "Home");
 	ppf = someRandomIntern.makeForm("presidential pardon", "Fry");
 	
+	// Trying to create a form that does not exist
+	std::cout << "trying to create a form that does not exist..." << std::endl;
 	try { 
 		ttf = someRandomIntern.makeForm("this form does not exist", "Target"); 
 	} 
@@ -27,33 +30,36 @@ int main()
 		std::cerr << e.what() << std::endl; 
 	}
 
+	// Displaying created forms
 	std::cout << "\ncreated forms..." << std::endl;
 	std::cout << *rrf << std::endl;
 	std::cout << *scf << std::endl;
 	std::cout << *ppf << std::endl;
 	
-	// (void)ttf;
+	(void)ttf;
 	
-
-	std::cout << "\nrecruting bureaacrat" << std::endl;
-	Bureaucrat *john = new Bureaucrat("Alice", 2);
+	// Bureaucrat recruting and working with forms
+	std::cout << "\nrecruting bureaucrat" << std::endl;
+	Bureaucrat *alice = new Bureaucrat("Alice", 2);
 
 	std::cout << "\nsigning forms..." << std::endl;
-	john->signForm(*rrf);
-	john->signForm(*scf);
-	john->signForm(*ppf);
+	alice->signForm(*rrf);
+	alice->signForm(*scf);
+	alice->signForm(*ppf);
 
 	std::cout << "\nexecuting forms..." << std::endl;
-	rrf->execute(*john);
-	scf->execute(*john);
-	ppf->execute(*john);
+	rrf->execute(*alice);
+	scf->execute(*alice);
+	ppf->execute(*alice);
 
+	// Cleaning up
 	std::cout << "\ncleaning up..." << std::endl;
-	delete john;
+	delete alice;
 	delete rrf;
 	delete scf;
 	delete ppf;
-	delete ttf;
+	if (ttf)
+		delete ttf;
 
 	return 0;
 }
