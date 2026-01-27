@@ -8,6 +8,30 @@ int main()
 	Bureaucrat *a = new Bureaucrat("Alice", 2);
 	std::cout << a;
 
+	// Creating Bureaucrats with invalid grades
+	std::cout << "\nCreating Bureaucrats with invalid grades:" << std::endl;
+	try
+	{
+		Bureaucrat* b = new Bureaucrat("Bob", 0);
+		std::cout << b;
+		delete b;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	try
+	{
+		Bureaucrat* c = new Bureaucrat("Charlie", 151);
+		std::cout << c;
+		delete c;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+
 	// Creating Forms
 	std::cout << "\nCreating Forms:" << std::endl;
 	Form *f = new Form("Giving presidential status", 1, 1);

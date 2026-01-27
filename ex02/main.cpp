@@ -9,7 +9,7 @@ int main()
 	std::srand(std::time(NULL));
 
 	// Creating bureaucrats and forms
-	std::cout << "----- Creating bureaucrats and forms -----" << std::endl;
+	std::cout << " Creating bureaucrats and forms " << std::endl;
 	Bureaucrat *a = new Bureaucrat("Alice", 2);
 	std::cout << a;
 
@@ -31,7 +31,7 @@ int main()
 
 
 	// Signing forms
-	std::cout << "\n----- Signing forms -----" << std::endl;
+	std::cout << "\n Signing forms " << std::endl;
 	try
 	{
 		a->signForm(*f);
@@ -53,7 +53,7 @@ int main()
 	}
 
 	// Executing ShrubberyCreationForms
-	std::cout << "\n----- Executing Shrubbery forms -----" << std::endl;
+	std::cout << "\n Executing Shrubbery forms -" << std::endl;
 	try
 	{
 		f->execute(*a);
@@ -63,7 +63,7 @@ int main()
 		std::cout << e.what() << std::endl;
 	}
 
-	std::cout << "\n----- Bob Executing Shrubbery forms -----"<<std::endl;
+	std::cout << "\n Bob Executing Shrubbery forms " << std::endl;
 	try
 	{
 		i->execute(*b);
@@ -74,7 +74,7 @@ int main()
 	}
 
 	// Signing and executing RobotomyRequestForm
-	std::cout << "\n----- Signing and executing Robotomy form -----" << std::endl;
+	std::cout << "\n Signing and executing Robotomy form " << std::endl;
 	try
 	{
 		b->signForm(*r);
@@ -95,6 +95,14 @@ int main()
 		std::cout << e.what() << std::endl;
 	}
 
+	try 
+	{
+		r->execute(*b);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	try
 	{
 		r->execute(*a);
@@ -105,7 +113,7 @@ int main()
 	}
 
 	// Signing and executing PresidentialPardonForm
-	std::cout << "\n----- Signing and executing Presidential Pardon form -----" << std::endl;
+	std::cout << "\n Signing and executing Presidential Pardon form " << std::endl;
 
 	try
 	{
@@ -127,6 +135,15 @@ int main()
 		std::cout << e.what() << std::endl;
 	}
 
+
+	try 
+	{
+		p->execute(*b);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	try
 	{
 		p->execute(*a);
@@ -137,7 +154,7 @@ int main()
 	}
 
 	// Cleaning up
-	std::cout << "\n----- Cleaning up -----" << std::endl;
+	std::cout << "\n Cleaning up " << std::endl;
 	delete a;
 	delete b;
 	delete f;

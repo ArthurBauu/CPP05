@@ -38,7 +38,7 @@ void ShrubberyCreationForm::executeAction() const
 "   #o#|#|#/###\n"
 "    ####|/#o#\n"
 "     # }|{  #\n"
-"       }|{\n\n\n\n\n" 
+"       }|{\n\n\n" 
 "       *\n"
 "      ***\n"
 "     *****\n"

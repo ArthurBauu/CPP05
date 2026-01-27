@@ -48,7 +48,7 @@ int main()
 		std::cout << e.what() << std::endl;
 	}
 
-	// decreasing grade
+	//incrementing grade
 	c->incrementGrade();
 	std::cout << c;
 	c->incrementGrade();
@@ -72,7 +72,7 @@ int main()
 		std::cout << e.what() << std::endl;
 	}
 
-	// increasing grade
+	// Decreasing grade
 	std::cout << "\nDecreasing grade after trying to go over 1:" << std::endl;
 	d->decrementGrade();
 	std::cout << d;

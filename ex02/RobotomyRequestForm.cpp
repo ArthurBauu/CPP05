@@ -35,8 +35,4 @@ void RobotomyRequestForm::executeAction() const
 		std::cout << "The robotomy failed on " << _target << "!" << std::endl;
 }
 
-const char *RobotomyRequestForm::FileErrorException::what() const throw()
-{
-	return "Error: could not open file";
-}
 
